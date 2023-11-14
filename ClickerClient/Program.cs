@@ -1,12 +1,17 @@
 using ClickerClient.Components;
-using Microsoft.AspNetCore.Components.Web;
+using EyEClientLib.Extensions;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
-
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-await builder.Build().RunAsync();
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        builder.RootComponents.Add<App>("#app");
+        builder.AddEyEClientDependencies();
+        var services = builder.Services;
+        var host = builder.Build();
+        await host.AddEyEClientHostDependenciesAsync();
+        await host.RunAsync();
+    }
+}

@@ -1,0 +1,29 @@
+//Bundler&Minifier(����� � ������ 1 � ����� �������� ���������� ���� �������)
+//(https://github.com/madskristensen/BundlerMinifier)
+[
+  {
+    "outputFileName": "wwwroot/bundle.css",
+    "inputFiles": [
+      "Pages/**/**/**/**/**/*.1.css",
+      "Pages/**/**/**/**/**/*.css",
+      "wwwroot/css/eyebundle.css" //last
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": true
+  },
+  {
+    "outputFileName": "wwwroot/bundle.js",
+    "inputFiles": [
+      "Pages/**/**/**/**/**/*.js",
+      "wwwroot/js/eyebundle.js" //last
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": true
+  }
+]
