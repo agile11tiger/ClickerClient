@@ -423,9 +423,13 @@ pre {
     background: #d7d7d7;
 }
 
+:root {
+    --header-heigh: 3.5rem;
+}
+
 .header {
     display: flex;
-    height: 3.5rem;
+    height: var(--header-heigh);
     position: relative;
     align-items: center;
     border: 1px solid #bbb;
